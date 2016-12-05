@@ -1,4 +1,4 @@
-; the backtrace-log for bt test program
+; the backtrace-log for bt test program using build script build.ss
 
 $ ./bt.so
 12-05 11:42:13.902: bt(6896): main/ begin
