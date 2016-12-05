@@ -1,0 +1,27 @@
+; the backtrace-log for bt test program
+
+$ ./bt.so
+12-05 11:42:13.902: bt(6896): main/ begin
+12-05 11:42:13.902: mywork(6896): fn1/ x=100
+12-05 11:42:13.902: mywork(6896): fn2/ x=100
+12-05 11:42:13.902: mywork(6896): fn3/ x=100
+12-05 11:42:13.902: mywork(6896): backtrace of [some-wrong] as following:
+12-05 11:42:13.903: mywork(6896): 	at fn3 (some/utility/work.ss:20)
+12-05 11:42:13.903: mywork(6896): 	at fn2 (some/utility/work.ss:15)
+12-05 11:42:13.903: mywork(6896): 	at fn1 (some/utility/work.ss:10)
+12-05 11:42:13.903: mywork(6896): 	at --main-- (./bt.ss:10)
+12-05 11:42:13.903: mywork(6896): fn3/ end
+12-05 11:42:13.903: mywork(6896): fn2/ end
+12-05 11:42:13.904: mywork(6896): fn1/ end
+12-05 11:42:13.904: mywork(6896): fn1/ x=50
+12-05 11:42:13.904: mywork(6896): fn2/ x=50
+12-05 11:42:13.904: mywork(6896): fn3/ x=50
+12-05 11:42:13.904: mywork(6896): backtrace of [some-wrong] as following:
+12-05 11:42:13.904: mywork(6896): 	at fn3 (some/utility/work.ss:20)
+12-05 11:42:13.904: mywork(6896): 	at fn2 (some/utility/work.ss:15)
+12-05 11:42:13.905: mywork(6896): 	at fn1 (some/utility/work.ss:10)
+12-05 11:42:13.905: mywork(6896): 	at --main-- (./bt.ss:11)
+12-05 11:42:13.905: mywork(6896): fn3/ end
+12-05 11:42:13.905: mywork(6896): fn2/ end
+12-05 11:42:13.905: mywork(6896): fn1/ end
+12-05 11:42:13.905: bt(6896): main/ end
