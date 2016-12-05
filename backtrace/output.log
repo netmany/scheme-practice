@@ -1,4 +1,4 @@
-; the backtrace-log for bt test program using build script build.ss
+; (1) the backtrace-log for bt test program using build script build.ss
 
 $ ./bt.so
 12-05 11:42:13.902: bt(6896): main/ begin
@@ -25,3 +25,32 @@ $ ./bt.so
 12-05 11:42:13.905: mywork(6896): fn2/ end
 12-05 11:42:13.905: mywork(6896): fn1/ end
 12-05 11:42:13.905: bt(6896): main/ end
+
+
+; (2) using load-program to disable run-cp0 for print-stack-trace.
+
+$ echo '(parameterize ([run-cp0 (lambda (cp0 x) x)]) (load-program "./bt.ss"))' | scheme -q 
+12-05 14:22:37.983: bt(24165): main/ begin
+12-05 14:22:37.984: mywork(24165): fn1/ x=100
+12-05 14:22:37.984: mywork(24165): fn2/ x=100
+12-05 14:22:37.984: mywork(24165): fn3/ x=100
+12-05 14:22:37.984: mywork(24165): backtrace of [some-wrong] as following:
+12-05 14:22:37.985: mywork(24165): 	at fn3 (some/utility/work.ss:20)
+12-05 14:22:37.985: mywork(24165): 	at fn2 (some/utility/work.ss:15)
+12-05 14:22:37.985: mywork(24165): 	at fn1 (some/utility/work.ss:10)
+12-05 14:22:37.986: mywork(24165): 	at --main-- (./bt.ss:10)
+12-05 14:22:37.986: mywork(24165): fn3/ end
+12-05 14:22:37.986: mywork(24165): fn2/ end
+12-05 14:22:37.986: mywork(24165): fn1/ end
+12-05 14:22:37.986: mywork(24165): fn1/ x=50
+12-05 14:22:37.986: mywork(24165): fn2/ x=50
+12-05 14:22:37.986: mywork(24165): fn3/ x=50
+12-05 14:22:37.986: mywork(24165): backtrace of [some-wrong] as following:
+12-05 14:22:37.987: mywork(24165): 	at fn3 (some/utility/work.ss:20)
+12-05 14:22:37.987: mywork(24165): 	at fn2 (some/utility/work.ss:15)
+12-05 14:22:37.987: mywork(24165): 	at fn1 (some/utility/work.ss:10)
+12-05 14:22:37.988: mywork(24165): 	at --main-- (./bt.ss:11)
+12-05 14:22:37.988: mywork(24165): fn3/ end
+12-05 14:22:37.988: mywork(24165): fn2/ end
+12-05 14:22:37.988: mywork(24165): fn1/ end
+12-05 14:22:37.988: bt(24165): main/ end
