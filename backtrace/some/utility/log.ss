@@ -6,15 +6,15 @@
 		(define d (current-date))
 		(printf "~a: ~a(~a): ~a\n"
 			(format "~2,'0d-~2,'0d ~2,'0d:~2,'0d:~2,'0d.~3,'0d"
-			         (date-month d) (date-day d)
+				 (date-month d) (date-day d)
 				 (date-hour d) (date-minute d) (date-second d) (div (date-nanosecond d) 1000000))
 			tag (get-process-id) msg))
 
-    (define (source-info func file line)
-        (format "\tat ~a (~a:~a)"
-            (if func func "--main--")
-            file
-            line))
+	(define (source-info func file line)
+		(format "\tat ~a (~a:~a)"
+		    (if func func "--main--")
+		    file
+		    line))
 
 	(define (print-stack-trace tag obj max-depth)
 		(call/cc (lambda (k)
