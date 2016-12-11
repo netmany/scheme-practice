@@ -1,4 +1,3 @@
-// file ffi.c
 
 #include <string.h>
 
