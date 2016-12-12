@@ -4,6 +4,8 @@
 (import (some utility work))
 (import (some utility log))
 
+; print-back-trace in fn3
+
 (define tag "mytest")
 
 (slog tag "main/ begin")
