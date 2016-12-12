@@ -1,0 +1,12 @@
+(library (os net)
+    (export net_connect net_close net_read net_write net_listen net_accept)
+    (import (chezscheme))
+    (define ld (load-shared-object (format "~a/native/libnet.so" (getenv "MyAppPath")))) 
+    
+    (define net_connect (foreign-procedure "net_connect" (string int) int))
+    (define net_close (foreign-procedure "net_close" (int) void))
+    (define net_read (foreign-procedure "net_read" (int u8* int) int))
+    (define net_write (foreign-procedure "net_write" (int u8* int) int))
+    (define net_listen (foreign-procedure "net_listen" (int) int))
+    (define net_accept (foreign-procedure "net_accept" (int) int))
+    )
