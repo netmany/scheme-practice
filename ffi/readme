@@ -1,0 +1,4 @@
+example code for foreign interface in scheme
+
+how to call C function from scheme?
+passVal(int a, int* b, const char* c, char* d, struct info* e);
