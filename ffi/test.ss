@@ -35,4 +35,16 @@
 
 (getInfo ti)
 
-(printf "info/ age=~d\n"  (ftype-ref info (age) ti))
+(define (char*->string fptr)
+  (utf8->string
+   (apply bytevector
+      (reverse
+       (let loop ([i 0] [acc '()])
+         (let ([c (char->integer (ftype-ref char () fptr i))])
+           (if (zero? c)
+	       acc
+	       (loop (+ i 1) (cons c acc)))))))))
+
+
+(printf "info/ name=~a, age=~d\n"  (char*->string (ftype-ref info (name) ti))
+	(ftype-ref info (age) ti))
