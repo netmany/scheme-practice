@@ -17,8 +17,8 @@ struct info {
 	int age;
 };
 
-int getInfo(const char* name, struct info* p){
-     if(strcmp(name, "helen") == 0) {
+int getInfo(struct info* p){
+     if(strcmp(p->name, "helen") == 0) {
      	p->age = 20;
      } else {
      	p->age = 0;
