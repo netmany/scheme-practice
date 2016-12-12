@@ -1,4 +1,4 @@
-
+; file ffi.ss
 (load-shared-object "./libffi.so")
 
 (define-ftype PASSVAL_T (function (int (* int) string u8* int) int))
@@ -26,10 +26,13 @@
 	 (name (* char))
 	 (age int)))
 
-(define getInfo (foreign-procedure "getInfo" (string (* info)) int))
+(define getInfo (foreign-procedure "getInfo" ((* info)) int))
 
 (define ti (make-ftype-pointer info (foreign-alloc (ftype-sizeof info))))
 
-(getInfo "helen" ti)
+(define strdup (foreign-procedure "strdup" (string) (* char)))
+(ftype-set! info (name) ti (strdup "helen"))
+
+(getInfo ti)
 
 (printf "info/ age=~d\n"  (ftype-ref info (age) ti))
