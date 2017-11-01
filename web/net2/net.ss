@@ -2,7 +2,8 @@
     (export htonl htons
             nsocket nbind nlisten naccept
             nread nwrite nopen nclose
-            nsleep sockaddr_in in_addr)
+            nsleep bzero
+            sockaddr_in in_addr)
     (import (chezscheme))
     
     (define clib (load-shared-object "libc.so.6"))
@@ -31,5 +32,7 @@
     (define nread (foreign-procedure "read" (int u8* long) long))
     (define nwrite (foreign-procedure "write" (int u8* long) long))
     
+    ; (* sockaddr_in) mapped to void* in C
+    (define bzero (foreign-procedure "bzero" ((* sockaddr_in) size_t) void))
     (define nsleep (foreign-procedure "sleep" (unsigned-int) unsigned-int))
     )
