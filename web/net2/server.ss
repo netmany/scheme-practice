@@ -18,6 +18,8 @@
     (make-ftype-pointer sockaddr_in 
         (foreign-alloc (ftype-sizeof sockaddr_in))))
   
+  (bzero serv_addr (ftype-sizeof sockaddr_in))
+  
   (ftype-set! sockaddr_in (sin_family) 
               serv_addr 2)
   
@@ -37,6 +39,8 @@
   (define cli_addr
     (make-ftype-pointer sockaddr_in 
         (foreign-alloc (ftype-sizeof sockaddr_in))))
+  
+  (bzero cli_addr (ftype-sizeof sockaddr_in))
   
   (define len (make-bytevector 8 0))
   
