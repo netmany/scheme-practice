@@ -54,3 +54,21 @@ $ echo '(parameterize ([run-cp0 (lambda (cp0 x) x)]) (load-program "./bt.ss"))' 
 12-05 14:22:37.988: mywork(24165): fn2/ end
 12-05 14:22:37.988: mywork(24165): fn1/ end
 12-05 14:22:37.988: bt(24165): main/ end
+
+========================================================================================
+
+~/explore/practice
+[master]$ echo '(parameterize ([run-cp0 (lambda (cp0 x) x)]) (load-program "exception-handler.ss"))' | scheme -q
+Exception: attempt to apply non-procedure 10
+	at f1 (exp.ss:29,14)
+	at f2 (exp.ss:32,10)
+	at f3 (exp.ss:35,9)
+	at --main-- (exp.ss:37,1)
+
+~/explore/practice
+[master]$ scheme --script exception-handler.ss 
+Exception: attempt to apply non-procedure 10
+	at f1 (exp.ss:29,14)
+	at f2 (exp.ss:32,10)
+	at f3 (exp.ss:35,9)
+
