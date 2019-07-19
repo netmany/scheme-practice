@@ -57,6 +57,8 @@ $ echo '(parameterize ([run-cp0 (lambda (cp0 x) x)]) (load-program "./bt.ss"))' 
 
 ========================================================================================
 
+; (3) debug unkown exceptions in code
+
 ~/explore/practice
 [master]$ echo '(parameterize ([run-cp0 (lambda (cp0 x) x)]) (load-program "exception-handler.ss"))' | scheme -q
 Exception: attempt to apply non-procedure 10
