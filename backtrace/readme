@@ -1,5 +1,5 @@
 example code for debugging scheme program
 
 a) print backtrace in a known test point
-b) print program execution logs
-c) print backtrace for unkown exception in code
+b) print backtrace for unkown exception in code
+c) print backtrace for a hung process with multiple threads
