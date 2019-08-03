@@ -1,0 +1,54 @@
+[master]$ scheme --script  hung_detect.ss > hung.log &
+[1] 4221
+
+~/explore/practice
+[master]$ kill -10 4221
+
+~/explore/practice
+[master]$ kill -9 4221
+[1]+  killed               scheme --script hung_detect.ss > hung.log
+
+=============================================================================
+
+08-03 16:45:04.178	4221	0	hung-test: on signal
+08-03 16:45:04.178	4221	0	hung-test: 	at make-exception	(hung_detect.ss:17,5)
+08-03 16:45:04.178	4221	0	hung-test: 	at ???	(hung_detect.ss:39,25)
+08-03 16:45:04.178	4221	0	hung-test: 	at f3_type1	???
+08-03 16:45:04.178	4221	0	hung-test: 	at f2	(hung_detect.ss:59,9)
+08-03 16:45:04.178	4221	0	hung-test: 	at f1	(hung_detect.ss:56,9)
+08-03 16:45:04.178	4221	0	hung-test: 	at ksrc	???
+08-03 16:45:04.178	4221	0	hung-test: 	at ???	???
+08-03 16:45:04.178	4221	0	hung-test: 	at dynamic-wind	???
+08-03 16:45:04.178	4221	0	hung-test: 	at dynamic-wind	???
+08-03 16:45:04.178	4221	0	hung-test: 	at $reset-protect	???
+08-03 16:45:04.178	4221	0	hung-test: 	at dynamic-wind	???
+08-03 16:45:04.178	4221	0	hung-test: 	at dynamic-wind	???
+08-03 16:45:04.178	4221	0	hung-test: 	at $expeditor	???
+08-03 16:45:04.178	4221	0	hung-test: 	at invoke	???
+08-03 16:45:04.178	4221	2	hung-test: on timer
+08-03 16:45:04.178	4221	3	hung-test: on timer
+08-03 16:45:04.178	4221	1	hung-test: on timer
+08-03 16:45:04.178	4221	3	hung-test: 	at make-exception	(hung_detect.ss:17,5)
+08-03 16:45:04.178	4221	2	hung-test: 	at make-exception	(hung_detect.ss:17,5)
+08-03 16:45:04.178	4221	1	hung-test: 	at make-exception	(hung_detect.ss:17,5)
+08-03 16:45:04.179	4221	3	hung-test: 	at ???	(hung_detect.ss:49,38)
+08-03 16:45:04.179	4221	3	hung-test: 	at f3_type1	???
+08-03 16:45:04.179	4221	2	hung-test08-03 16:45:04.179: 		at ???	(hung_detect.ss:49,38)
+4221	1	hung-test: 	at ???	(hung_detect.ss:49,38)
+08-03 16:45:04.179	4221	2	hung-test: 	at f3_type1	???
+08-03 16:45:04.179	4221	1	hung-test: 	at f3_type1	???
+08-03 16:45:04.179	4221	3	hung-test: 	at f2	(hung_detect.ss:59,9)
+08-03 16:45:04.179	4221	2	hung-test: 	at f2	(hung_detect.ss:59,9)
+08-03 16:45:04.179	4221	1	hung-test: 	at f2	(hung_detect.ss:59,9)
+08-03 16:45:04.179	4221	3	hung-test: 	at f1	(hung_detect.ss:56,9)
+08-03 16:45:04.179	4221	3	hung-test: 	at ???	???
+08-03 16:45:04.179	4221	3	hung-test: 	at dynamic-wind	???
+08-03 16:45:04.179	4208-03 16:45:04.179	42212	1	32		hung-testhung-test: 	at f1	(hung_detect.ss:56,9)
+: 	at invoke	???
+08-03 16:45:04.179	4221	2	hung-test: 	at ???	???
+08-03 16:45:04.179	4221	1	hung-test: 	at f1	(hung_detect.ss:56,9)
+08-03 16:45:04.179	4221	2	hung-test: 	at dynamic-wind	???
+08-03 16:45:04.179	4221	1	hung-test: 	at ???	???
+08-03 16:45:04.179	4221	2	hung-test: 	at invoke	???
+08-03 16:45:04.179	4221	1	hung-test: 	at dynamic-wind	???
+08-03 16:45:04.179	4221	1	hung-test: 	at invoke	???
