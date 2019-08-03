@@ -69,11 +69,11 @@
 (define (hung-task)
     (f1 20))
 
-(hung-task)
+(my-fork-thread hung-task)
+(my-fork-thread hung-task)
+(my-fork-thread hung-task)
 
-(my-fork-thread hung-task)
-(my-fork-thread hung-task)
-(my-fork-thread hung-task)
+(hung-task)
 
 (let p ()
   (sleep (make-time 'time-duration 0 1))
